@@ -14,13 +14,17 @@ public class Test {
 
     // add a value to the data-store
     System.out.print("# Manipulated Data\n");
-    Comparable[] insertion = {"sup", new Integer(3)};
+    Comparable[] insertion = {"sup", new Integer(2)};
     fstore.add(insertion);
     fstore.render(); 
     
-    // filter and render the model      
+    // filter and render the model  
+    // NB: filtering can be doen with a single col-value pair or 
+    //     with a recursively evaluated sequence of these pairs.
     System.out.print("# Filtered Data\n");
-    Comparable[][] subset = fstore.find(0, "hello");
+    int[] cols = {1, 0};
+    Comparable[] values = {new Integer(2), "sup"};
+    Comparable[][] subset = fstore.find(cols, values);
     new RawDataStore(subset).render();     
   }
 }

@@ -49,4 +49,18 @@ public abstract class DataStore {
     }
     return resp;
   }
+  public Comparable[][] find(int[] cols, Comparable[] matches) {
+    if( matches.length == 0 ) {
+      return model;
+    }
+    int[] colShift = new int[cols.length-1];
+    Comparable[] matchShift = new Comparable[cols.length-1];
+    int i = 0;
+    while( i < cols.length-1 ) {
+      colShift[i] = cols[i+1];
+      matchShift[i] = matches[i+1];
+      i++;
+    }
+    return (new RawDataStore(find(cols[0], matches[0]))).find(colShift, matchShift);
+  }
 }
