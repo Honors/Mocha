@@ -50,4 +50,8 @@ public FileStore(String file);
 ```
 
 In the former, a file and data with which to initialize it are
-provided. In the latter, a file alone is presented.
+provided. In the latter, a file alone is presented. The methods of
+interaction with `FileStores` are those provided by the `DataStore`
+abstract. Note that the `read` and `write` functions are too
+implementation specific and should be avoided in favor of the
+higher-level interfaces.

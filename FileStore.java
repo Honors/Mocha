@@ -39,6 +39,7 @@ public class FileStore extends DataStore {
   public FileStore(String file, Comparable[][] data) {
     this.file = file;
     model = data;
+    write();
   }
   public FileStore(String file) {
     this.file = file;

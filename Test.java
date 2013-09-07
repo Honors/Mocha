@@ -9,7 +9,6 @@ public class Test {
     System.out.print("# Written Data\n");
     Comparable[][] vs = {{"hello", new Integer(1)}, {"goodbye", new Integer(2)}};
     FileStore fstore = new FileStore("/Users/mattneary/Desktop/School/Honors Java/Parking/out.txt", vs);
-    fstore.write();
     fstore.render(); 
 
     // add a value to the data-store
