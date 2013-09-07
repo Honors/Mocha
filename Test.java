@@ -15,7 +15,7 @@ public class Test {
     // add a value to the data-store
     System.out.print("# Manipulated Data\n");
     Comparable[] insertion = {"sup", new Integer(2)};
-    fstore.add(insertion);
+    fstore.append(insertion);
     fstore.render(); 
     
     // filter and render the model  

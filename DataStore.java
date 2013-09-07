@@ -11,7 +11,7 @@ public abstract class DataStore {
       return model;
     }
   }
-  public void add(Comparable[] row) {
+  public void append(Comparable[] row) {
     Comparable[][] old = read();
     Comparable[][] newd = new Comparable[old.length+1][old[0].length];
     int i = 0;
