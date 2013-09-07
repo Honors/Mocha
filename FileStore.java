@@ -2,7 +2,11 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 public class FileStore extends DataStore {
+  public void write() {
+    write(model());
+  }
   public void write(Comparable[][] vs) {
+    model = vs;
     FileOutputStream fileOut = null;
     try {
       fileOut = new FileOutputStream("/Users/mattneary/Desktop/School/Honors Java/Parking/out.txt");
@@ -28,8 +32,10 @@ public class FileStore extends DataStore {
       // TODO: close stream...
     }
 
+    model = data;
     return data;
   }
-  public void FileStore() {
+  public FileStore(Comparable[][] data) {
+    model = data;
   }
 }
