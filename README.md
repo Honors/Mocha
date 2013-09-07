@@ -1,7 +1,8 @@
 # Mocha
 Mocha provides simple persistent models for Java. Arbitrary types
 are allowed, so long as they implement `Comparable`, and in the
-future, so long as they implement `FuzzyComparable`.
+future, so long as they implement `FuzzyComparable`. The 
+enforcement of strict schemata is planned to be implemented as well.
 
 ## Usage
 ### DataStores
