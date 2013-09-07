@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 public class FileStore extends DataStore {
+  public String file;
   public void write() {
     write(model());
   }
@@ -9,7 +10,7 @@ public class FileStore extends DataStore {
     model = vs;
     FileOutputStream fileOut = null;
     try {
-      fileOut = new FileOutputStream("/Users/mattneary/Desktop/School/Honors Java/Parking/out.txt");
+      fileOut = new FileOutputStream(file);
       ObjectOutputStream out = new ObjectOutputStream(fileOut);
       out.writeObject(vs);
       out.close();
@@ -21,7 +22,7 @@ public class FileStore extends DataStore {
     FileInputStream fileIn = null;
     Comparable[][] data = null;
     try {
-      fileIn = new FileInputStream("/Users/mattneary/Desktop/School/Honors Java/Parking/out.txt");
+      fileIn = new FileInputStream(file);
       ObjectInputStream in = new ObjectInputStream(fileIn);
       data = (Comparable[][])in.readObject();
     } catch(IOException e) {
@@ -35,7 +36,12 @@ public class FileStore extends DataStore {
     model = data;
     return data;
   }
-  public FileStore(Comparable[][] data) {
+  public FileStore(String file, Comparable[][] data) {
+    this.file = file;
     model = data;
+  }
+  public FileStore(String file) {
+    this.file = file;
+    model = read();
   }
 }
